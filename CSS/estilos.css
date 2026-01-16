@@ -1,0 +1,144 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #1d2671, #c33764);
+  min-height: 100vh;
+  color: white;
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+}
+
+header h1 {
+  font-size: 2rem;
+}
+
+header p {
+  opacity: 0.9;
+}
+
+#horario {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  padding: 20px;
+}
+
+.materia {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.materia h2 {
+  font-size: 1.4rem;
+  margin-bottom: 5px;
+}
+
+.materia p {
+  opacity: 0.9;
+}
+
+.materia:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* Vista de materia */
+#vistaMateria {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #141e30, #243b55);
+  padding: 20px;
+  z-index: 10;
+  animation: aparecer 0.3s ease;
+}
+
+#btnVolver {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+#tituloMateria {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.contenidoMateria {
+  background: rgba(255,255,255,0.15);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+/* Animación */
+@keyframes aparecer {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.oculto {
+  display: none;
+}
+
+#nuevaTarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+#btnAgregar {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  background: #0fcf22;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+#listaTareas {
+  list-style: none;
+}
+
+.tarea {
+  background: rgba(255,255,255,0.2);
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tarea.hecha {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
