@@ -1,9 +1,31 @@
 const materias = [
-  { id: "mate", nombre: "Matemáticas", hora: "7:00 - 8:00" },
-  { id: "esp", nombre: "Español", hora: "8:00 - 9:00" },
-  { id: "ing", nombre: "Inglés", hora: "9:00 - 10:00" },
-  { id: "hist", nombre: "Historia", hora: "10:30 - 11:30" }
+  {
+    id: "mate",
+    nombre: "Matemáticas",
+    dias: {
+      lunes: "7:00 - 8:00",
+      miercoles: "7:00 - 8:00",
+      viernes: "7:00 - 8:00"
+    }
+  },
+  {
+    id: "prog",
+    nombre: "Programación",
+    dias: {
+      lunes: "8:00 - 10:00",
+      jueves: "9:00 - 11:00"
+    }
+  },
+  {
+    id: "ing",
+    nombre: "Inglés",
+    dias: {
+      martes: "7:00 - 8:00",
+      viernes: "8:00 - 9:00"
+    }
+  }
 ];
+
 
 let materiaActual = "";
 
@@ -103,3 +125,33 @@ function mostrarNotificacion(titulo, mensaje) {
 setTimeout(() => {
   mostrarNotificacion("📚 Recordatorio", "Tienes tareas pendientes");
 }, 3000);
+
+const diaSelect = document.getElementById("diaSelect");
+
+diaSelect.addEventListener("change", () => {
+  mostrarMateriasPorDia(diaSelect.value);
+});
+
+function mostrarMateriasPorDia(dia) {
+  horario.innerHTML = "";
+
+  materias.forEach(materia => {
+    if (materia.dias[dia]) {
+      const card = document.createElement("div");
+      card.classList.add("materia");
+
+      card.innerHTML = `
+        <h2>${materia.nombre}</h2>
+        <p>${materia.dias[dia]}</p>
+      `;
+
+      card.addEventListener("click", () => {
+        abrirMateria(materia.nombre);
+      });
+
+      horario.appendChild(card);
+    }
+  });
+}
+
+mostrarMateriasPorDia("lunes");
