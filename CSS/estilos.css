@@ -142,3 +142,16 @@ header p {
   text-decoration: line-through;
   opacity: 0.6;
 }
+
+#selectorDia {
+  padding: 0 20px;
+}
+
+#diaSelect {
+  width: 100%;
+  padding: 12px;
+  border-radius: 14px;
+  border: none;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
