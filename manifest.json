@@ -2,6 +2,7 @@
   "name": "Mi Horario",
   "short_name": "Horario",
   "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#141e30",
   "theme_color": "#c33764",
@@ -13,4 +14,5 @@
     }
   ]
 }
+
 
