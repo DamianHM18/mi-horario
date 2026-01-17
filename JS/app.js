@@ -161,6 +161,10 @@ diaSelect.addEventListener("change", () => {
 });
 
 function mostrarMateriasPorDia(dia) {
+  horario.classList.remove("animar-dia");
+void horario.offsetWidth; // truco para reiniciar animación
+horario.classList.add("animar-dia");
+
   horario.innerHTML = "";
 
   // 1. Filtrar materias del día
@@ -290,6 +294,7 @@ function generarTablaSemanal() {
 }
 
 generarTablaSemanal();
+
 
 
 
