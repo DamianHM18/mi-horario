@@ -210,9 +210,15 @@ td {
 }
 
 .bloque {
-  padding: 6px;
-  border-radius: 10px;
+  height: 100%;
+  padding: 8px;
+  border-radius: 12px;
   font-size: 0.75rem;
   color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
+
+
 
