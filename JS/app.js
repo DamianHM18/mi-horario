@@ -51,7 +51,14 @@ const materias = [
     dias: {
       viernes: "13:00 - 15:00 · G1"
     }
+  },
+  {
+  nombre: "Guitarra y Rondalla",
+  dias: {
+    viernes: "Horario por definir · G1"
   }
+}
+
 ];
 
 
@@ -184,4 +191,5 @@ function mostrarMateriasPorDia(dia) {
 }
 
 mostrarMateriasPorDia("lunes");
+
 
