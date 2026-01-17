@@ -140,9 +140,19 @@ btnAgregar.addEventListener("click", () => {
   mostrarMateriasPorDia(diaSelect.value);
 });
 
-if ("Notification" in window) {
-  Notification.requestPermission();
-}
+btnLimpiar.addEventListener("click", () => {
+  if (!materiaActual) return;
+
+  let tareas = JSON.parse(localStorage.getItem(materiaActual)) || [];
+
+  // Quitar solo las tareas hechas
+  tareas = tareas.filter(t => !t.hecha);
+
+  localStorage.setItem(materiaActual, JSON.stringify(tareas));
+
+  cargarTareas();
+  mostrarMateriasPorDia(diaSelect.value);
+});
 
 
 const diaSelect = document.getElementById("diaSelect");
@@ -302,6 +312,7 @@ function contarPendientes(nombreMateria) {
   const tareas = JSON.parse(localStorage.getItem(nombreMateria)) || [];
   return tareas.filter(t => !t.hecha).length;
 }
+
 
 
 
