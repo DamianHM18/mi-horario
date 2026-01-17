@@ -76,6 +76,7 @@ let materiaActual = "";
 const inputTarea = document.getElementById("nuevaTarea");
 const btnAgregar = document.getElementById("btnAgregar");
 const listaTareas = document.getElementById("listaTareas");
+const btnLimpiar = document.getElementById("btnLimpiar");
 
 const horario = document.getElementById("horario");
 
@@ -301,6 +302,7 @@ function contarPendientes(nombreMateria) {
   const tareas = JSON.parse(localStorage.getItem(nombreMateria)) || [];
   return tareas.filter(t => !t.hecha).length;
 }
+
 
 
 
