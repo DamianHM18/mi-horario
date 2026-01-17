@@ -235,5 +235,32 @@ td {
   animation: cambioDia 0.35s ease;
 }
 
+.tarea {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.15);
+  animation: tareaEntrar 0.3s ease;
+}
+
+@keyframes tareaEntrar {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tarea.hecha {
+  opacity: 0.6;
+  text-decoration: line-through;
+}
+
 
 
