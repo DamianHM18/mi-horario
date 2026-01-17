@@ -220,5 +220,20 @@ td {
   justify-content: center;
 }
 
+@keyframes cambioDia {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animar-dia {
+  animation: cambioDia 0.35s ease;
+}
+
 
 
