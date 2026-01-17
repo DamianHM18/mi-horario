@@ -143,19 +143,6 @@ if ("Notification" in window) {
 }
 
 
-function mostrarNotificacion(titulo, mensaje) {
-  if (Notification.permission === "granted") {
-    new Notification(titulo, {
-      body: mensaje,
-      icon: "https://cdn-icons-png.flaticon.com/512/2991/2991148.png"
-    });
-  }
-}
-
-setTimeout(() => {
-  mostrarNotificacion("📚 Recordatorio", "Tienes tareas pendientes");
-}, 3000);
-
 const diaSelect = document.getElementById("diaSelect");
 
 diaSelect.addEventListener("change", () => {
@@ -167,6 +154,8 @@ function mostrarMateriasPorDia(dia) {
 void horario.offsetWidth; // truco para reiniciar animación
 horario.classList.add("animar-dia");
 
+  
+  
   horario.innerHTML = "";
 
   // 1. Filtrar materias del día
@@ -192,6 +181,16 @@ materiasDelDia.forEach(materia => {
   const card = document.createElement("div");
   card.classList.add("materia");
 
+  // BURBUJA DE TAREAS PENDIENTES
+const pendientes = contarPendientes(materia.nombre);
+if (pendientes > 0) {
+  const burbuja = document.createElement("div");
+  burbuja.classList.add("burbuja");
+  burbuja.textContent = pendientes;
+  card.appendChild(burbuja);
+}
+
+  
   card.style.background = `
     linear-gradient(
       135deg,
@@ -297,7 +296,8 @@ function generarTablaSemanal() {
 
 generarTablaSemanal();
 
-
-
-
+function contarPendientes(nombreMateria) {
+  const tareas = JSON.parse(localStorage.getItem(nombreMateria)) || [];
+  return tareas.filter(t => !t.hecha).length;
+}
 
