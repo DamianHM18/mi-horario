@@ -295,3 +295,21 @@ td {
 .burbuja {
   animation: pulso 1.6s infinite ease-in-out;
 }
+
+.btn-limpiar {
+  width: 100%;
+  margin-top: 12px;
+  padding: 10px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(255,255,255,0.2);
+  color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.btn-limpiar:active {
+  transform: scale(0.97);
+  background: rgba(255,255,255,0.35);
+}
