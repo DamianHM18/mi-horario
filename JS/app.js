@@ -1,30 +1,59 @@
 const materias = [
   {
-    id: "mate",
-    nombre: "Matemáticas",
+    nombre: "Cálculo Integral",
     dias: {
-      lunes: "7:00 - 8:00",
-      miercoles: "7:00 - 8:00",
-      viernes: "7:00 - 8:00"
+      lunes: "12:00 - 13:00 · LAB TELEM",
+      miercoles: "11:00 - 13:00 · LAB TELEM",
+      jueves: "15:00 - 17:00 · G1"
     }
   },
   {
-    id: "prog",
-    nombre: "Programación",
+    nombre: "Álgebra Lineal",
     dias: {
-      lunes: "8:00 - 10:00",
-      jueves: "9:00 - 11:00"
+      lunes: "13:00 - 15:00 · LAB TELEM",
+      miercoles: "13:00 - 15:00 · LAB TELEM",
+      jueves: "12:00 - 13:00 · G1"
     }
   },
   {
-    id: "ing",
-    nombre: "Inglés",
+    nombre: "Química",
     dias: {
-      martes: "7:00 - 8:00",
-      viernes: "8:00 - 9:00"
+      lunes: "15:00 - 17:00 · G1",
+      martes: "13:00 - 14:00 · G1",
+      viernes: "16:00 - 17:00 · G1"
+    }
+  },
+  {
+    nombre: "Probabilidad y Estadística",
+    dias: {
+      lunes: "17:00 - 19:00 · G1",
+      martes: "16:00 - 17:00 · G1",
+      viernes: "17:00 - 19:00 · G1"
+    }
+  },
+  {
+    nombre: "Programación Orientada a Objetos",
+    dias: {
+      martes: "14:00 - 16:00 · G1",
+      jueves: "13:00 - 15:00 · G1",
+      viernes: "15:00 - 16:00 · G1"
+    }
+  },
+  {
+    nombre: "Contabilidad Financiera",
+    dias: {
+      miercoles: "15:00 - 17:00 · G1",
+      jueves: "17:00 - 19:00 · G1"
+    }
+  },
+  {
+    nombre: "Tutoría 02",
+    dias: {
+      viernes: "13:00 - 15:00 · G1"
     }
   }
 ];
+
 
 
 let materiaActual = "";
@@ -155,3 +184,4 @@ function mostrarMateriasPorDia(dia) {
 }
 
 mostrarMateriasPorDia("lunes");
+
