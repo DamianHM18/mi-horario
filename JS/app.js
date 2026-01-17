@@ -136,6 +136,7 @@ btnAgregar.addEventListener("click", () => {
   localStorage.setItem(materiaActual, JSON.stringify(tareas));
   inputTarea.value = "";
   cargarTareas();
+  mostrarMateriasPorDia(diaSelect.value);
 });
 
 if ("Notification" in window) {
@@ -300,4 +301,5 @@ function contarPendientes(nombreMateria) {
   const tareas = JSON.parse(localStorage.getItem(nombreMateria)) || [];
   return tareas.filter(t => !t.hecha).length;
 }
+
 
