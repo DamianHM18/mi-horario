@@ -99,6 +99,8 @@ btnVolver.addEventListener("click", () => {
 function cargarTareas() {
   listaTareas.innerHTML = "";
   const tareas = JSON.parse(localStorage.getItem(materiaActual)) || [];
+  tareas.sort((a, b) => a.hecha - b.hecha);
+
 
   tareas.forEach((tarea, index) => {
     const li = document.createElement("li");
@@ -294,6 +296,7 @@ function generarTablaSemanal() {
 }
 
 generarTablaSemanal();
+
 
 
 
