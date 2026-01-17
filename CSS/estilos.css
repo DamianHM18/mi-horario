@@ -32,12 +32,33 @@ header p {
 }
 
 .materia {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
+  padding: 16px;
   border-radius: 16px;
-  padding: 20px;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 14px;
+
+  /* Efecto visual */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+  backdrop-filter: blur(6px);
+
+  /* Animación */
+  animation: aparecer 0.4s ease forwards;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.materia:active {
+  transform: scale(0.97);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .materia h2 {
@@ -155,3 +176,4 @@ header p {
   font-size: 1rem;
   margin-bottom: 20px;
 }
+
