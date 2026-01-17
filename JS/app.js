@@ -79,22 +79,6 @@ const listaTareas = document.getElementById("listaTareas");
 
 const horario = document.getElementById("horario");
 
-materias.forEach(materia => {
-  const card = document.createElement("div");
-  card.classList.add("materia");
-
-  card.innerHTML = `
-    <h2>${materia.nombre}</h2>
-    <p>${materia.hora}</p>
-  `;
-
-  card.addEventListener("click", () => {
-  abrirMateria(materia.nombre);
-});
-
-
-  horario.appendChild(card);
-});
 
 const vistaMateria = document.getElementById("vistaMateria");
 const tituloMateria = document.getElementById("tituloMateria");
@@ -182,37 +166,46 @@ function mostrarMateriasPorDia(dia) {
   // 1. Filtrar materias del día
   const materiasDelDia = materias
     .filter(materia => materia.dias[dia])
-    .map(materia => {
-      // Extraer la hora de inicio (ej: "12:00")
-      const textoHorario = materia.dias[dia];
-      const horaInicio = textoHorario.split(" - ")[0];
+   .map(materia => {
+  const textoHorario = materia.dias[dia];
+  const horaInicio = textoHorario.split(" - ")[0];
 
-      return {
-        nombre: materia.nombre,
-        horario: textoHorario,
-        horaInicio: convertirAHora(horaInicio)
-      };
-    });
+  return {
+    nombre: materia.nombre,
+    horario: textoHorario,
+    horaInicio: convertirAHora(horaInicio),
+    color: materia.color   // 👈 ESTO FALTABA
+  };
+});
 
   // 2. Ordenar por hora
   materiasDelDia.sort((a, b) => a.horaInicio - b.horaInicio);
 
   // 3. Pintar tarjetas ordenadas
-  materiasDelDia.forEach(materia => {
-    const card = document.createElement("div");
-    card.classList.add("materia");
+materiasDelDia.forEach(materia => {
+  const card = document.createElement("div");
+  card.classList.add("materia");
 
-    card.innerHTML = `
-      <h2>${materia.nombre}</h2>
-      <p>${materia.horario}</p>
-    `;
+  card.style.background = `
+    linear-gradient(
+      135deg,
+      ${materia.color}cc,
+      ${materia.color}66
+    )
+  `;
 
-    card.addEventListener("click", () => {
-      abrirMateria(materia.nombre);
-    });
+  card.innerHTML = `
+    <h2>${materia.nombre}</h2>
+    <p>${materia.horario}</p>
+  `;
 
-    horario.appendChild(card);
+  card.addEventListener("click", () => {
+    abrirMateria(materia.nombre);
   });
+
+  horario.appendChild(card);
+});
+
 }
 
 mostrarMateriasPorDia("lunes");
@@ -221,14 +214,4 @@ function convertirAHora(hora) {
   const [h, m] = hora.split(":").map(Number);
   return h * 60 + m;
 }
-
-const colores = {
-  azulOscuro,
-  azulClaro
-  rojo
-  naranja
-  fiusga
-  verde
-};
-
 
