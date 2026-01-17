@@ -233,24 +233,56 @@ const diasTabla = ["lunes", "martes", "miercoles", "jueves", "viernes"];
 function generarTablaSemanal() {
   tablaBody.innerHTML = "";
 
-  horasTabla.forEach(hora => {
+  const filasOcupadas = {};
+
+  horasTabla.forEach((hora, indexHora) => {
     const tr = document.createElement("tr");
     tr.innerHTML = `<td>${hora}</td>`;
 
     diasTabla.forEach(dia => {
-      let celda = "";
+
+      // Si esta celda ya está ocupada por un rowspan
+      if (filasOcupadas[`${dia}-${indexHora}`]) {
+        return;
+      }
+
+      let celdaCreada = false;
 
       materias.forEach(materia => {
-        if (materia.dias[dia] && materia.dias[dia].startsWith(hora.split(" ")[0])) {
-          celda = `
+        const horario = materia.dias[dia];
+        if (!horario) return;
+
+        const [inicio, fin] = horario.split(" · ")[0].split(" - ");
+
+        if (inicio === hora.split(" ")[0]) {
+          const duracionHoras =
+            convertirAHora(fin) - convertirAHora(inicio);
+
+          const rowspan = duracionHoras / 60;
+
+          const td = document.createElement("td");
+          td.rowSpan = rowspan;
+
+          td.innerHTML = `
             <div class="bloque" style="background:${materia.color}">
-              ${materia.nombre}
+              <strong>${materia.nombre}</strong><br>
+              <small>${horario.split(" · ")[1]}</small>
             </div>
           `;
+
+          tr.appendChild(td);
+          celdaCreada = true;
+
+          // Marcar filas ocupadas
+          for (let i = 1; i < rowspan; i++) {
+            filasOcupadas[`${dia}-${indexHora + i}`] = true;
+          }
         }
       });
 
-      tr.innerHTML += `<td>${celda}</td>`;
+      if (!celdaCreada) {
+        tr.innerHTML += `<td></td>`;
+      }
     });
 
     tablaBody.appendChild(tr);
@@ -258,5 +290,6 @@ function generarTablaSemanal() {
 }
 
 generarTablaSemanal();
+
 
 
