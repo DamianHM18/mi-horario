@@ -215,3 +215,48 @@ function convertirAHora(hora) {
   return h * 60 + m;
 }
 
+const tablaBody = document.getElementById("tablaBody");
+
+const horasTabla = [
+  "11:00 - 12:00",
+  "12:00 - 13:00",
+  "13:00 - 14:00",
+  "14:00 - 15:00",
+  "15:00 - 16:00",
+  "16:00 - 17:00",
+  "17:00 - 18:00",
+  "18:00 - 19:00"
+];
+
+const diasTabla = ["lunes", "martes", "miercoles", "jueves", "viernes"];
+
+function generarTablaSemanal() {
+  tablaBody.innerHTML = "";
+
+  horasTabla.forEach(hora => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td>${hora}</td>`;
+
+    diasTabla.forEach(dia => {
+      let celda = "";
+
+      materias.forEach(materia => {
+        if (materia.dias[dia] && materia.dias[dia].startsWith(hora.split(" ")[0])) {
+          celda = `
+            <div class="bloque" style="background:${materia.color}">
+              ${materia.nombre}
+            </div>
+          `;
+        }
+      });
+
+      tr.innerHTML += `<td>${celda}</td>`;
+    });
+
+    tablaBody.appendChild(tr);
+  });
+}
+
+generarTablaSemanal();
+
+
