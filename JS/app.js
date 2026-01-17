@@ -200,7 +200,7 @@ if (pendientes > 0) {
     )
   `;
 
-  card.innerHTML = `
+  card.innerHTML += `
     <h2>${materia.nombre}</h2>
     <p>${materia.horario}</p>
   `;
@@ -301,5 +301,6 @@ function contarPendientes(nombreMateria) {
   const tareas = JSON.parse(localStorage.getItem(nombreMateria)) || [];
   return tareas.filter(t => !t.hecha).length;
 }
+
 
 
