@@ -177,3 +177,35 @@ header p {
   margin-bottom: 20px;
 }
 
+#tablaSemanal {
+  padding: 16px;
+}
+
+#tablaSemanal h2 {
+  margin-bottom: 12px;
+}
+
+.tabla-contenedor {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+th, td {
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background: rgba(0,0,0,0.35);
+}
+
+td {
+  background: rgba(255,255,255,0.12);
+}
+
