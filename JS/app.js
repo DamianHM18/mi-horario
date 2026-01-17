@@ -1,6 +1,7 @@
 const materias = [
   {
     nombre: "Cálculo Integral",
+    color: "#1e3799",
     dias: {
       lunes: "12:00 - 13:00 · LAB TELEM",
       miercoles: "11:00 - 13:00 · LAB TELEM",
@@ -9,6 +10,7 @@ const materias = [
   },
   {
     nombre: "Álgebra Lineal",
+    color: "#74b9ff",
     dias: {
       lunes: "13:00 - 15:00 · LAB TELEM",
       miercoles: "13:00 - 15:00 · LAB TELEM",
@@ -17,6 +19,7 @@ const materias = [
   },
   {
     nombre: "Química",
+    color: "#27ae60",
     dias: {
       lunes: "15:00 - 17:00 · G1",
       martes: "13:00 - 14:00 · G1",
@@ -25,6 +28,7 @@ const materias = [
   },
   {
     nombre: "Probabilidad y Estadística",
+    color: "#f39c12",
     dias: {
       lunes: "17:00 - 19:00 · G1",
       martes: "16:00 - 17:00 · G1",
@@ -33,6 +37,7 @@ const materias = [
   },
   {
     nombre: "Programación Orientada a Objetos",
+    color: "#e74c3c",
     dias: {
       martes: "14:00 - 16:00 · G1",
       jueves: "13:00 - 15:00 · G1",
@@ -41,6 +46,7 @@ const materias = [
   },
   {
     nombre: "Contabilidad Financiera",
+    color: "#e84393",
     dias: {
       miercoles: "15:00 - 17:00 · G1",
       jueves: "17:00 - 19:00 · G1"
@@ -48,12 +54,14 @@ const materias = [
   },
   {
     nombre: "Tutoría 02",
+    color: "#74b9ff",
     dias: {
       viernes: "13:00 - 15:00 · G1"
     }
   },
   {
   nombre: "Guitarra y Rondalla",
+    color: "#f39c12",
   dias: {
     viernes: "Horario por definir · G1"
   }
@@ -213,5 +221,14 @@ function convertirAHora(hora) {
   const [h, m] = hora.split(":").map(Number);
   return h * 60 + m;
 }
+
+const colores = {
+  azulOscuro,
+  azulClaro
+  rojo
+  naranja
+  fiusga
+  verde
+};
 
 
