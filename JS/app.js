@@ -171,25 +171,47 @@ diaSelect.addEventListener("change", () => {
 function mostrarMateriasPorDia(dia) {
   horario.innerHTML = "";
 
-  materias.forEach(materia => {
-    if (materia.dias[dia]) {
-      const card = document.createElement("div");
-      card.classList.add("materia");
+  // 1. Filtrar materias del día
+  const materiasDelDia = materias
+    .filter(materia => materia.dias[dia])
+    .map(materia => {
+      // Extraer la hora de inicio (ej: "12:00")
+      const textoHorario = materia.dias[dia];
+      const horaInicio = textoHorario.split(" - ")[0];
 
-      card.innerHTML = `
-        <h2>${materia.nombre}</h2>
-        <p>${materia.dias[dia]}</p>
-      `;
+      return {
+        nombre: materia.nombre,
+        horario: textoHorario,
+        horaInicio: convertirAHora(horaInicio)
+      };
+    });
 
-      card.addEventListener("click", () => {
-        abrirMateria(materia.nombre);
-      });
+  // 2. Ordenar por hora
+  materiasDelDia.sort((a, b) => a.horaInicio - b.horaInicio);
 
-      horario.appendChild(card);
-    }
+  // 3. Pintar tarjetas ordenadas
+  materiasDelDia.forEach(materia => {
+    const card = document.createElement("div");
+    card.classList.add("materia");
+
+    card.innerHTML = `
+      <h2>${materia.nombre}</h2>
+      <p>${materia.horario}</p>
+    `;
+
+    card.addEventListener("click", () => {
+      abrirMateria(materia.nombre);
+    });
+
+    horario.appendChild(card);
   });
 }
 
 mostrarMateriasPorDia("lunes");
+
+function convertirAHora(hora) {
+  const [h, m] = hora.split(":").map(Number);
+  return h * 60 + m;
+}
 
 
