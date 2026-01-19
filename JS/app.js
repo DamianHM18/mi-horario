@@ -3,8 +3,8 @@ const materias = [
     nombre: "Cálculo Integral",
     color: "#1e3799",
     dias: {
-      lunes: "12:00 - 13:00 · LAB TELEM",
-      miercoles: "11:00 - 13:00 · LAB TELEM",
+      lunes: "12:00 - 13:00 · SALA DE APLICACIONES II",
+      miercoles: "11:00 - 13:00 · SALA DE APLICACIONES II",
       jueves: "15:00 - 17:00 · G1"
     }
   },
@@ -12,18 +12,17 @@ const materias = [
     nombre: "Álgebra Lineal",
     color: "#74b9ff",
     dias: {
-      lunes: "13:00 - 15:00 · LAB TELEM",
-      miercoles: "13:00 - 15:00 · LAB TELEM",
-      jueves: "12:00 - 13:00 · G1"
+      lunes: "13:00 - 16:00 · G5",
+      miercoles: "13:00 - 15:00 · G5",
     }
   },
   {
     nombre: "Química",
     color: "#27ae60",
     dias: {
-      lunes: "15:00 - 17:00 · G1",
+      lunes: "16:00 - 17:00 · G1",
       martes: "13:00 - 14:00 · G1",
-      viernes: "16:00 - 17:00 · G1"
+      viernes: "15:00 - 17:00 · G1"
     }
   },
   {
@@ -31,7 +30,7 @@ const materias = [
     color: "#f39c12",
     dias: {
       lunes: "17:00 - 19:00 · G1",
-      martes: "16:00 - 17:00 · G1",
+      jueves: "12:00 - 13:00 · G1",
       viernes: "17:00 - 19:00 · G1"
     }
   },
@@ -39,9 +38,9 @@ const materias = [
     nombre: "Programación Orientada a Objetos",
     color: "#e74c3c",
     dias: {
-      martes: "14:00 - 16:00 · G1",
+      martes: "14:00 - 15:00 · G1",
       jueves: "13:00 - 15:00 · G1",
-      viernes: "15:00 - 16:00 · G1"
+      viernes: "13:00 - 15:00 · G1"
     }
   },
   {
@@ -56,7 +55,7 @@ const materias = [
     nombre: "Tutoría 02",
     color: "#74b9ff",
     dias: {
-      viernes: "13:00 - 15:00 · G1"
+      martes: "15:00 - 17:00 · G1"
     }
   },
   {
@@ -312,6 +311,7 @@ function contarPendientes(nombreMateria) {
   const tareas = JSON.parse(localStorage.getItem(nombreMateria)) || [];
   return tareas.filter(t => !t.hecha).length;
 }
+
 
 
 
