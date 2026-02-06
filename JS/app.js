@@ -69,7 +69,7 @@ const materias = [
   nombre: "Inglés Nivel 1",
   color: "#e84393",
   dias:{
-    sabado: "08:00 - 13:00 · H11"
+    sabado: "07:00 - 13:00 · H11"
   }
 }
 
@@ -253,7 +253,7 @@ const horasTabla = [
   "18:00 - 19:00"
 ];
 
-const diasTabla = ["lunes", "martes", "miercoles", "jueves", "viernes", "sabado"];
+const diasTabla = ["lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"];
 
 function generarTablaSemanal() {
   tablaBody.innerHTML = "";
@@ -320,6 +320,7 @@ function contarPendientes(nombreMateria) {
   const tareas = JSON.parse(localStorage.getItem(nombreMateria)) || [];
   return tareas.filter(t => !t.hecha).length;
 }
+
 
 
 
