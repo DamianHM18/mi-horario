@@ -67,7 +67,7 @@ const materias = [
 },
 {
   nombre: "Inglés Nivel 1",
-  color "#e84393",
+  color: "#e84393",
   dias:{
     sabado: "08:00 - 13:00 · H11"
   }
@@ -320,6 +320,7 @@ function contarPendientes(nombreMateria) {
   const tareas = JSON.parse(localStorage.getItem(nombreMateria)) || [];
   return tareas.filter(t => !t.hecha).length;
 }
+
 
 
 
