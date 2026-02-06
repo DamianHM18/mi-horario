@@ -3,8 +3,8 @@ const materias = [
     nombre: "Cálculo Integral",
     color: "#1e3799",
     dias: {
-      lunes: "12:00 - 13:00 · SALA DE APLICACIONES II",
-      miercoles: "11:00 - 13:00 · SALA DE APLICACIONES II",
+      lunes: "12:00 - 13:00 · SALA DE APLICACIONES I",
+      miercoles: "11:00 - 13:00 · H6",
       jueves: "15:00 - 17:00 · G1"
     }
   },
@@ -13,7 +13,7 @@ const materias = [
     color: "#74b9ff",
     dias: {
       lunes: "13:00 - 16:00 · G5",
-      miercoles: "13:00 - 15:00 · G5",
+      miercoles: "13:00 - 15:00 · SALA DE APLICACIONES I",
     }
   },
   {
@@ -61,10 +61,15 @@ const materias = [
   {
   nombre: "Guitarra y Rondalla",
     color: "#f39c12",
-  dias: {
-    viernes: "Horario por definir · G1"
+    dias: {
+    miercoles: "09:00 - 11:00 · AULA DE MÚSICA"
   }
-}
+},
+{
+  nombre: "Inglés Nivel 1",
+  color "#e84393",
+  dias:{
+    sabado: "08:00 - 13:00 · H11"
 
 ];
 
@@ -311,6 +316,7 @@ function contarPendientes(nombreMateria) {
   const tareas = JSON.parse(localStorage.getItem(nombreMateria)) || [];
   return tareas.filter(t => !t.hecha).length;
 }
+
 
 
 
