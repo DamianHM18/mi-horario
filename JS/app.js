@@ -255,7 +255,7 @@ const horasTabla = [
   "18:00 - 19:00"
 ];
 
-const diasTabla = ["lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"];
+const diasTabla = ["lunes", "martes", "miercoles", "jueves", "viernes", "sabado"];
 
 function generarTablaSemanal() {
   tablaBody.innerHTML = "";
@@ -322,6 +322,7 @@ function contarPendientes(nombreMateria) {
   const tareas = JSON.parse(localStorage.getItem(nombreMateria)) || [];
   return tareas.filter(t => !t.hecha).length;
 }
+
 
 
 
