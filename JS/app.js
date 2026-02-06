@@ -187,7 +187,7 @@ horario.classList.add("animar-dia");
     nombre: materia.nombre,
     horario: textoHorario,
     horaInicio: convertirAHora(horaInicio),
-    color: materia.color   // 👈 ESTO FALTABA
+    color: materia.color   
   };
 });
 
@@ -251,7 +251,7 @@ const horasTabla = [
   "18:00 - 19:00"
 ];
 
-const diasTabla = ["lunes", "martes", "miercoles", "jueves", "viernes"];
+const diasTabla = ["lunes", "martes", "miercoles", "jueves", "viernes", "sabado"];
 
 function generarTablaSemanal() {
   tablaBody.innerHTML = "";
@@ -318,6 +318,7 @@ function contarPendientes(nombreMateria) {
   const tareas = JSON.parse(localStorage.getItem(nombreMateria)) || [];
   return tareas.filter(t => !t.hecha).length;
 }
+
 
 
 
