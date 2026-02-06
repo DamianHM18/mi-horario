@@ -241,6 +241,8 @@ function convertirAHora(hora) {
 const tablaBody = document.getElementById("tablaBody");
 
 const horasTabla = [
+  "07:00 - 09:00",
+  "09:00 - 11:00",
   "11:00 - 12:00",
   "12:00 - 13:00",
   "13:00 - 14:00",
@@ -318,6 +320,7 @@ function contarPendientes(nombreMateria) {
   const tareas = JSON.parse(localStorage.getItem(nombreMateria)) || [];
   return tareas.filter(t => !t.hecha).length;
 }
+
 
 
 
